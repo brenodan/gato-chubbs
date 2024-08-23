@@ -1,6 +1,11 @@
 ## Gato Chubbs
 
-Simple repository for testing converting python to models.
+Simple AI model conversion (TensorFlow and Pytorch) to C/C++.
+
+## Summary
+The *gato-chubbs* is a Python module that **curretly** is intended as a proof of concept for converting regression models from Tensorflow and Pytorch to C and C++. 
+
+At this time, uses one keras dense layer (TensorFlow) or LinearRegression (Pytorch) to generate a sample model. Next, it uses a source template to generate the target a C or C++. 
 
 ## Files
 
@@ -28,7 +33,7 @@ Lastly, it saves the generated code in the appropriate directory.
     ```bash
     python src/python/code_generator.py
     ```
-3. Compile and Test
+3. Compile and Test Sources
     C targets:
     ```
     gcc generated_model.c -o generated_model 
@@ -39,3 +44,16 @@ Lastly, it saves the generated code in the appropriate directory.
     g++ generated_model.cpp -o generated_model
     ./generated_model
     ```
+4. Running Unit Tests
+   ```
+    python -m unittest discover -s tests
+   ```
+    
+## TODO
+1. Improve model support
+2. Add additional templates
+3. Improve tests
+4. Add equivalence testing
+5. Add github actions
+6. Add flask support
+7. Improve documentation
