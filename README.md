@@ -5,7 +5,7 @@ Simple AI model conversion (TensorFlow and Pytorch) to C/C++.
 ## Summary
 The *gato-chubbs* is a Python module that **curretly** is intended as a proof of concept for converting regression models from Tensorflow and Pytorch to C and C++. 
 
-At this time, uses one keras dense layer (TensorFlow) or LinearRegression (Pytorch) to generate a sample model. Next, it uses a source template to generate the target a C or C++. 
+At this time, uses one keras sequential model using a dense layer (TensorFlow) or LinearRegression (Pytorch) to generate a sample model. Next, it uses a source template to generate the target a C or C++. 
 
 ## Files
 
