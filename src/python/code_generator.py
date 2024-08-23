@@ -1,19 +1,20 @@
 # src/python/code_generator.py
 
 import os
+import sys
 import torch
 import tensorflow as tf
-from model import LinearRegressionModel  # Import the model class
+# sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from src.python.model import LinearRegressionModel
+# sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 def load_model(filepath, framework):
-    """Load the trained model based on the framework."""
     if framework == 'tensorflow':
         return tf.keras.models.load_model(filepath)
     elif framework == 'pytorch':
-        model = LinearRegressionModel()
-        state_dict = torch.load(filepath)
-        model.load_state_dict(state_dict)
-        model.eval()  # Set the model to evaluation mode
+        model = LinearRegressionModel()  # Ensure this matches the saved model
+        model.load_state_dict(torch.load(filepath))
+        model.eval()
         return model
     else:
         raise ValueError(f"Unsupported framework: {framework}")
@@ -54,7 +55,7 @@ def generate_code(model, target_language='c', framework='tensorflow'):
     generated_code = replace_placeholders(template_content, weight, bias)
 
     # Save the generated code
-    output_file = f"../../src/{target_language}/generated_model.{target_language}"
+    output_file = f"src/{target_language}/generated_model.{target_language}"
     with open(output_file, 'w') as file:
         file.write(generated_code)
 

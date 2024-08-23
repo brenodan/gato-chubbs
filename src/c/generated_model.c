@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 // Model parameters (weights and bias)
-float weight = 1.5631543397903442f;  // Example weight (to be replaced with actual value)
-float bias = 0.3601642847061157f;    // Example bias (to be replaced with actual value)
+float weight = 1.2424184083938599f;  // Example weight (to be replaced with actual value)
+float bias = 1.0825127363204956f;    // Example bias (to be replaced with actual value)
 
 // Function to make predictions
 float predict(float x) {
